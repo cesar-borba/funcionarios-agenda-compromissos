@@ -1,31 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title><s:text name="label.titulo.pagina.consulta"/></title>
-    <style>
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid black; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
+    <link rel='stylesheet' href='css/table.css'>
 </head>
 <body>
-    <h2>Relatório de Compromissos</h2>
+    <h2><s:text name="label.titulo.pagina.consulta"/></h2>
     <br>
     <table>
         <thead>
             <tr>
-                <th>ID Compromisso</th>
-                <th>ID Funcionário</th>
-                <th>Nome Funcionário</th>
-                <th>ID Agenda</th>
-                <th>Nome Agenda</th>
-                <th>Data Compromisso</th>
-                <th>Horário Compromisso</th>
+                <th><s:text name="label.relatorio.id.compromisso"/></th>
+                <th><s:text name="label.relatorio.id.funcionario"/></th>
+                <th><s:text name="label.relatorio.nome.funcionario"/></th>
+                <th><s:text name="label.relatorio.id.agenda"/></th>
+                <th><s:text name="label.relatorio.nome.agenda"/></th>
+                <th><s:text name="label.relatorio.data"/></th>
+                <th><s:text name="label.relatorio.horario"/></th>
             </tr>
         </thead>
         <tbody>
