@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	<constant name="struts.action.excludePattern" value="/webjars/.*,/h2-console/*" />
+
+    <package name="br.com.soc.sistema" extends="struts-default" strict-method-invocation="false">
+
+        <global-results>
+            <result name="error">jsp/error/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="br.com.soc.sistema.exception.BusinessException" result="error" />
+            <exception-mapping exception="br.com.soc.sistema.exception.TechnicalException" result="error" />
+        </global-exception-mappings>
+
+        <action name="*Funcionarios" class="br.com.soc.sistema.action.FuncionarioAction" method="{1}">
+        	<result name="success">jsp/funcionario/cadFuncionario_b.jsp</result>
+            <result name="input">jsp/funcionario/cadFuncionario_i.jsp</result>
+            <result name="error">jsp/funcionario/cadFuncionario_b.jsp</result>
+        	<result name="redirect" type="redirectAction">todosFuncionarios</result>
+        </action>
+
+        <action name="*Agendas" class="br.com.soc.sistema.action.AgendaAction" method="{1}">
+        	<result name="success">jsp/agenda/cadAgenda_b.jsp</result>
+            <result name="input">jsp/agenda/cadAgenda_i.jsp</result>
+            <result name="error">jsp/agenda/cadAgenda_b.jsp</result>
+        	<result name="redirect" type="redirectAction">todosAgendas</result>
+        </action>
+        
+        <action name="*Compromissos" class="br.com.soc.sistema.action.CompromissoAction" method="{1}">
+        	<result name="success">jsp/compromisso/cadCompromisso_b.jsp</result>
+            <result name="input">jsp/compromisso/cadCompromisso_i.jsp</result>
+            <result name="error">jsp/compromisso/cadCompromisso_b.jsp</result>
+        	<result name="redirect" type="redirectAction">todosCompromissos</result>
+        </action>
+
+        <action name="*Relatorios" class="br.com.soc.sistema.action.RelatorioAction" method="{1}">
+            <result name="success" type="stream">
+                <param name="inputName">arquivoExcelStream</param>
+            
+                <param name="contentType">application/vnd.ms-excel</param>
+            
+                <param name="contentDisposition">attachment;filename="${nomeDoArquivo}"</param>
+            </result>
+            <result name="input">jsp/relatorio/cadRelatorio_b.jsp</result>
+            <result name="impressao">jsp/relatorio/cadRelatorio_b2.jsp</result>
+        	<result name="redirect" type="redirectAction">todosRelatorios</result>
+        </action>
+
+    </package>
+
+</struts>

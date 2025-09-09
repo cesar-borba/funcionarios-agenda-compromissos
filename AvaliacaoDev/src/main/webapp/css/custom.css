@@ -1,0 +1,26 @@
+:root {
+    --bg-soc-color: #00a3a6;
+    --bg-soc-color-hover: #086466;
+    --bg-soc-secondary-color: #fcbb0b;
+    --bg-soc-secondary-color-hover: #c99506;
+}
+
+.bg-btn-navbar {
+    background-color: var(--bg-soc-color);
+    color: white;
+}
+
+.bg-btn-navbar:hover {
+    background-color: var(--bg-soc-color-hover);
+    color: white;
+}
+
+.bg-btn-principal {
+    background-color: var(--bg-soc-secondary-color);
+    color: white;
+}
+
+.bg-btn-principal:hover {
+    background-color: var(--bg-soc-secondary-color-hover);
+    color: white;
+}
